@@ -24,7 +24,8 @@ export default {
   mounted: function () {
     fetch('https://restcountries.eu/rest/v2/all')
       .then(res => res.json())
-      .then(countries => this.countries = countries);
+      .then(countries => this.countries = countries)
+      .catch(error => console.log(error));
 
     eventBus.$on('country-selected', (country) => {
       this.selectedCountry = country;
