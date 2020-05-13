@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import CountriesList from './components/CountriesList'
+import CountriesList from './components/CountriesList';
 
 export default {
   name: 'app',
