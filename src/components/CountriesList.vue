@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="countries-list">
         <select v-on:change="handleSelect" v-model.number="selectedIndex">
             <option value="" disabled>Select a country...</option>
             <option v-for="(country, index) in countries" :key="index" :value="index">
@@ -23,11 +23,15 @@ export default {
     methods: {
         handleSelect: function () {
             eventBus.$emit('country-selected', this.countries[this.selectedIndex]);
+            this.selectedIndex = "";
         }
     }
 };
 </script>
 
 <style>
-
+    select {
+        font-family: inherit;
+        width: 25ch;
+    }
 </style>

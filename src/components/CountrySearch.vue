@@ -23,6 +23,7 @@ export default {
                     if (Array.isArray(searchResults)) {
                         eventBus.$emit('search-complete', searchResults);
                     }
+                    this.searchInput = "";
                 })
                 .catch(error => console.log(error));
         }
@@ -31,5 +32,8 @@ export default {
 </script>
 
 <style>
-
+    input, button {
+        font-family: inherit;
+        font-size: inherit;
+    }
 </style>

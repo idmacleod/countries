@@ -1,5 +1,5 @@
 <template>
-    <li v-on:click="handleClick">{{ country.name }}</li>
+    <li class="clickable" v-on:click="handleClick">{{ country.name }}</li>
 </template>
 
 <script>
@@ -17,7 +17,11 @@ export default {
 </script>
 
 <style>
-    li {
+    .clickable {
         cursor: pointer;
+    }
+
+    .clickable:hover, .clickable:active {
+        text-decoration: underline;
     }
 </style>

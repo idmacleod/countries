@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header>
-      <h1>Countries</h1>
+      <h1>Vue Countries</h1>
       <countries-list :countries="countries"></countries-list>
       <country-search></country-search>
     </header>
@@ -62,9 +62,12 @@ export default {
 </script>
 
 <style>
+  #app {
+    font-family: 'Courier New', Courier, monospace;
+  }
   header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
   }
 </style>
