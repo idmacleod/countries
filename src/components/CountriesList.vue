@@ -1,7 +1,7 @@
 <template>
-    <ul>
+    <select>
         <list-component v-for="(country, index) in countries" :key="index" :country="country"></list-component>
-    </ul>
+    </select>
 </template>
 
 <script>
