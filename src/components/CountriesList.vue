@@ -12,7 +12,6 @@
 
 <script>
 import { eventBus } from '../main.js';
-import ListComponent from './ListComponent.vue';
 
 export default {
     data: function () {
@@ -22,9 +21,6 @@ export default {
     },
     name: 'countries-list',
     props: ['countries'],
-    components: {
-        'list-component': ListComponent
-    },
     methods: {
         handleSelect: function () {
             eventBus.$emit('country-selected', this.countries[this.selectedIndex]);
