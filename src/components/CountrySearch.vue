@@ -19,7 +19,11 @@ export default {
         handleSearch: function () {
             fetch(`https://restcountries.eu/rest/v2/name/${this.searchInput}`)
                 .then(res => res.json())
-                .then(searchResults => eventBus.$emit('search-complete', searchResults))
+                .then(searchResults => {
+                    if (Array.isArray(searchResults)) {
+                        eventBus.$emit('search-complete', searchResults);
+                    }
+                })
                 .catch(error => console.log(error));
         }
     }
