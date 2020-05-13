@@ -1,12 +1,15 @@
 <template>
-    <select v-on:change="handleSelect" v-model.number="selectedIndex">
-        <option value="" disabled>-- Select Country --</option>
-        <list-component v-for="(country, index) in countries"
-            :key="index"
-            :value="index"
-            :country="country"
-        ></list-component>
-    </select>
+    <div>
+        <h2>Pick a country...</h2>
+        <select v-on:change="handleSelect" v-model.number="selectedIndex">
+            <option value="" disabled>-- Select Country --</option>
+            <list-component v-for="(country, index) in countries"
+                :key="index"
+                :value="index"
+                :country="country"
+            ></list-component>
+        </select>
+    </div>
 </template>
 
 <script>
