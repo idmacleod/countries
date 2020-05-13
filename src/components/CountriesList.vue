@@ -13,7 +13,7 @@ export default {
     components: {
         'list-component': ListComponent
     }
-}
+};
 </script>
 
 <style>

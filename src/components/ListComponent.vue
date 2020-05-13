@@ -1,8 +1,5 @@
 <template>
-    <div v-if="country">
-        <li v-on:click="handleClick">{{ country.name }}</li>
-    </div>
-  
+    <li v-on:click="handleClick">{{ country.name }}</li>
 </template>
 
 <script>
@@ -16,7 +13,7 @@ export default {
             eventBus.$emit('country-clicked', this.country);
         }
     }
-}
+};
 </script>
 
 <style>

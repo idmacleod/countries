@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <h1>Countries</h1>
-    <countries-list :countries="countries"></countries-list>
     <country-detail :country="selectedCountry"></country-detail>
+    <countries-list :countries="countries"></countries-list>
   </div>
 </template>
 
@@ -32,7 +32,7 @@ export default {
     'countries-list': CountriesList,
     'country-detail': CountryDetail
   }
-}
+};
 </script>
 
 <style>
