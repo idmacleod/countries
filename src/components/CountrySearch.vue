@@ -1,42 +1,29 @@
 <template>
     <div>
-        <h2>...or search by name:</h2>
-        <input type="search" name="search" id="search" v-model="searchInput">
+        <input type="search" name="search" id="search" v-model="searchInput" placeholder="Search for a country...">
         <button v-on:click="handleSearch">Search</button>
-        <p v-if="searchFailed">No Results</p>
-        <ul v-if="searchResults">
-            <list-component v-for="(country, index) in searchResults" :key="index" :country="country"></list-component>
-        </ul>
     </div>
 </template>
 
 <script>
-import ListComponent from './ListComponent.vue';
+import { eventBus } from '../main.js';
 
 export default {
     name: 'country-search',
     data: function () {
         return {
             searchInput: "",
-            searchFailed: false,
-            searchResults: []
         }
     },
     methods: {
         handleSearch: function () {
             fetch(`https://restcountries.eu/rest/v2/name/${this.searchInput}`)
                 .then(res => res.json())
-                .then(searchResults => {
-                    this.searchResults = searchResults;
-                    this.searchFailed = false;
-                })
-                .catch(this.searchFailed = true);
+                .then(searchResults => eventBus.$emit('search-complete', searchResults))
+                .catch(error => console.log(error));
         }
-    },
-    components: {
-        'list-component': ListComponent
     }
-}
+};
 </script>
 
 <style>
