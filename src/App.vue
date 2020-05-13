@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <h1>Countries</h1>
-    <country-detail :country="selectedCountry"></country-detail>
     <countries-list :countries="countries"></countries-list>
+    <country-detail :country="selectedCountry"></country-detail>
   </div>
 </template>
 
@@ -24,7 +24,7 @@ export default {
       .then(res => res.json())
       .then(countries => this.countries = countries);
 
-    eventBus.$on('country-clicked', (country) => {
+    eventBus.$on('country-selected', (country) => {
       this.selectedCountry = country;
     });
   },
