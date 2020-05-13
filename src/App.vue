@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import { eventBus } from './main.js';
 import CountriesList from './components/CountriesList';
 
 export default {
@@ -19,7 +20,11 @@ export default {
   mounted: function () {
     fetch('https://restcountries.eu/rest/v2/all')
       .then(res => res.json())
-      .then(countries => this.countries = countries)
+      .then(countries => this.countries = countries);
+
+    eventBus.$on('country-clicked', (country) => {
+      this.selectedCountry = country;
+    });
   },
   components: {
     'countries-list': CountriesList

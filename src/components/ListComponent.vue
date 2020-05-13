@@ -20,5 +20,7 @@ export default {
 </script>
 
 <style>
-
+    li {
+        cursor: pointer;
+    }
 </style>
